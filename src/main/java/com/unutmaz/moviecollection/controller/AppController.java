@@ -82,6 +82,7 @@ public class AppController {
 		movie.setDate(mfw.getDate());
 		movie.setCategory(mfw.getCategory());
 		movie.setDescription(mfw.getDescription());
+		movie.setImage(mfw.getImage());
 		movie.setRating(mfw.getRating());
 		List<Actor> cast = new ArrayList<>();
 		for (String elem : mfw.getCastRef().split(",")) {

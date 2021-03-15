@@ -9,12 +9,21 @@ public class MovieFormWrapper {
 	private String category;
 	private String description;
 	private float rating;
+	private String image;
 	private String castRef;
 
 	public MovieFormWrapper(String text) {
 		this.castRef = text;
 	}
 	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public String getName() {
 		return name;
 	}
