@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link th:href="@{/css/movies.css}" type="text/css" rel="stylesheet"/>
+<script src="https://kit.fontawesome.com/dd36616560.js" crossorigin="anonymous"></script>
+<title>Movie Collection</title>
+</head>
+<body>
+<div class="container">
+
+	<h1 style="border-radius: 0px 0px 30px 30px;" class="text-center text-light bg-dark mb-3 pt-3 pb-3 font-weight-bold">MOVIE COLLECTION</h1>
+	
+	<form th:action="@{/logout}" method="post">
+		<input class="btn btn-dark" type="submit" value="Logout"/>
+	</form>
+	
+	<div class="row justify-content-center">
+		<select name="Search type" id="search_type" class="col-sm-2" style="margin-right: 5px;">
+			<option value="name">Search by name</option>
+			<option value="category">Search by category</option>
+			<option value="actor">Search by actors</option>
+		</select>
+		<input type="text" id="search_input" class="col-sm-4" style="margin-right: 10px;"/>
+		<button type="button" id="search_btn" class="btn btn-dark col-sm-1" style="margin-right: 10px;"><i class="fas fa-search"></i> Search</button>
+		<button type="button" id="search_clear_btn" class="btn btn-sm btn-outline-danger col-sm-1">Clear Search</button>
+	</div>
+	<span>Order by: </span>
+	<select name="Order by" id="order_type">
+		<option value="rating">Rating</option>
+		<option value="name">Name</option>
+		<option value="date">Release Date</option>
+	</select>
+	
+	<div class="table-responsive mt-3 bg-light container-fluid">
+		<table class="table table-hover table-striped table-bordered">
+			<thead class="text-light">
+				<tr class="row text-center bg-dark">
+					<td class="col-sm-2">Name</td>
+					<td class="col-sm-1">Release Date</td>
+					<td class="col-sm-1">Category</td>
+					<td class="col-sm-6">Description</td>
+					<td class="col-sm-1">Rating</td>
+					<td class="col-sm-1">Manage</td>
+				</tr>
+			</thead>
+			<th:block th:each="movie, iterStat:${movies}">
+				<tr class="row" style="height:60px; font-size:15px;">
+					<td onmouseover="this.style.color='red'; this.style.cursor='pointer';" onmouseout="this.style.color='black';" th:onclick="|window.location.href='/movies/${movie.id}';|" th:text="${movie.name}" class="col-sm-2 text-center" style="font-weight: bold;"/>
+					<td th:text="${movie.date}" class="col-sm-1 text-center"/>
+					<td th:text="${movie.category}" class="col-sm-1 text-center"/>
+					<td th:text="${movie.description}" class="col-sm-6" style="font-size: 14px"/>
+					<td th:text="${movie.rating}" class="col-sm-1 text-center"/>
+					<td class="col-sm-1 text-center">
+						<button id="edit_btn" th:onclick="|window.location.href='update/${movie.id}';|" class="btn btn-sm btn-dark w-20"><i class="fas fa-edit"></i></button>
+						<button id="delete_btn" th:onclick="'javascript:deleteClicked(\'' + ${movie.id} + '\');'" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+					</td>
+				</tr>
+			</th:block>
+		</table>
+	</div>
+	<div class="container justify-content-center text-center mt-3">
+		<button onclick="window.location.href='/movies/cast'" type="button" class="btn btn-md btn-dark">+ Add A Movie</button>
+	</div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/movies.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+</body>
+</html>

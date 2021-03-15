@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+*{
+	box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  background: linear-gradient(to bottom, rgb(245, 225, 203), rgb(211,175,152));
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

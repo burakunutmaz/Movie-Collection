@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link th:href="@{/css/movies.css}" type="text/css" rel="stylesheet"/>
+<script src="https://kit.fontawesome.com/dd36616560.js" crossorigin="anonymous"></script>
+<title>Movie Info</title>
+</head>
+<body>
+<div class="container text-center">
+	<h1 style="border-radius: 0px 0px 30px 30px;" class="text-center text-light bg-dark mb-3 pt-3 pb-3 font-weight-bold">MOVIE COLLECTION</h1>
+	<div class="bg-light p-3" id="movie_info">
+		<h2 th:text="${movie.name}"></h2>
+		<div style="height:400px; overflow:hidden;">
+			<image style="width:600px;" th:src="${movie.image}" th:alt="${movie.name}" class="img-thumbnail"/>
+		</div>
+
+		<h4 style="margin-top:20px;">Description</h4>
+		<p th:text="${movie.description}"/>
+			
+		<div id="cast_info" class="text-center container w-50">
+			<h4>Cast</h4>
+			<table class="table table-striped table-hover table-bordered">
+				<thead>
+					<tr class="bg-dark text-light">
+						<td>Actor Name</td>
+					</tr>
+				</thead>
+				<th:block th:each="actor, iterStat:${cast}">
+					<tr>
+						<td th:text="${actor.actor_name}"></td>
+					</tr>
+				</th:block>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+</body>
+</html>
