@@ -60,7 +60,7 @@ public class MovieRepoJPA implements MovieRepo {
 	@Override
 	public List<Movie> findByActor(String actor) {
 		List<Movie> movies = entityManager.createQuery("from Movie", Movie.class).getResultList();
-		return movies.stream().filter(m -> m.getCast().stream().anyMatch(a -> a.getActor_name().contains(actor))).collect(Collectors.toList());
+		return movies.stream().filter(m -> m.getCast().stream().anyMatch(a -> a.getActor_name().toUpperCase().contains(actor.toUpperCase()))).collect(Collectors.toList());
 	}
 
 }
