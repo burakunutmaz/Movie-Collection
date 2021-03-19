@@ -13,10 +13,17 @@ General Info
 
 ### How To Use
 > #### What You Need
-> Eclipse or SpringToolSuite4, Make sure port 8080 isn't in use.
+> Make sure port 8080 isn't in use.
 * Download the files and make sure they're inside a folder. (Name can be anything)
-* On SpringToolSuite4 (or Eclipse), File -> Import -> Existing Maven Projects -> Choose the folder
-* When importing process is done, right-click on the root directory (from Package Explorer) Run As -> Spring Boot Application
+#### TO RUN WITH AN IDE
+> * On SpringToolSuite4 (or Eclipse), File -> Import -> Existing Maven Projects -> Choose the folder
+> * When importing process is done, right-click on the root directory (from Package Explorer) Run As -> Spring Boot Application
+#### TO RUN WITH THE .JAR FILE
+> * After downloading the files, place the .jar file under the JAR folder anywhere you like.
+> * Then open the terminal, navigate to the directory that the .jar file is in.
+> * Type this command to run:  java -jar FILENAME.jar (in this case, java -jar movie-collection-0.0.1-SNAPSHOT.jar)
+> * And to shutdown the app, type this command: java -jar FILENAME.jar stop (in this case, java -jar movie-collection-0.0.1-SNAPSHOT.jar stop)
+
 * Once the app runs, open your browser and type http://localhost:8080 as the url. You'll get redirected to the login page.
 * You can register, then login. There are already two registered accounts in the app.
 * **Username: user Password: user** for a normal user experince (same as a newly registered account)
