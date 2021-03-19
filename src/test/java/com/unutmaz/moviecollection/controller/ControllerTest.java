@@ -60,5 +60,8 @@ public class ControllerTest {
 		appService.update(actor);
 		appService.update(movie);
 		MatcherAssert.assertThat(appService.findActorsByMovie(movie).size(), Matchers.equalTo(1));
+		
+		appService.deleteMovie(movie.getId());
+		appService.deleteActor(actor.getActor_id());
 	}
 }
