@@ -22,7 +22,7 @@ General Info
 > * After downloading the files, place the .jar file under the JAR folder anywhere you like.
 > * Then open the terminal, navigate to the directory that the .jar file is in.
 > * Type this command to run:  java -jar FILENAME.jar (in this case, java -jar movie-collection-0.0.1-SNAPSHOT.jar)
-> * And to shutdown the app, type this command: java -jar FILENAME.jar stop (in this case, java -jar movie-collection-0.0.1-SNAPSHOT.jar stop)
+> * And to shutdown the app, while still in the terminal: press CTRL + C on Linux/Windows or press Command + . (period) on Mac. 
 
 * Once the app runs, open your browser and type http://localhost:8080 as the url. You'll get redirected to the login page.
 * You can register, then login. There are already two registered accounts in the app.
